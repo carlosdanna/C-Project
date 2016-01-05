@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>This is the APP</title>
+    
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+
+
+    <script src="Scripts/jquery-1.9.1.min.js"></script>
+    <script src="Scripts/angular.min.js"></script>
+    <script src="Scripts/angular-ui-router.min.js"></script>
+
+    <script src="Scripts/App/Employee/EmployeeModule.js"></script>
+    <script src="Scripts/App/Employee/EmployeeConfig.js"></script>
+    <script src="Scripts/App/Employee/EmployeeServices.js"></script>
+
+    <script src="Scripts/App/Employee/view/view.employee.controller.js"></script>
+    <script src="Scripts/App/Employee/update/update.employee.controller.js"></script>
+    <script src="Scripts/App/Employee/create/create.employee.controller.js"></script>
+    
+    <script src="Scripts/App/AppModule.js"></script>
+    <script src="Scripts/App/AppConfig.js"></script>
+
+    <script src="Scripts/App/AppController.js"></script>
+    
+</head>
+<body ng-app="myApp">
+    <div class='container'>
+        <div ui-view></div>
+    </div>
+
+</body>
+</html>

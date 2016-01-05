@@ -1,0 +1,53 @@
+﻿<form class="form-vertical" name="createEmployeeForm" ng-init="vm.initialize()" novalidate>
+    <h3> Create new Employee</h3>
+    <div class="well col-md-offset-1 col-md-10">
+        <div class="form-group row" ng-class="{ 'has-error' : createEmployeeForm.firstname.$invalid && !createEmployeeForm.firstname.$pristine }">
+
+            <div class="col-md-2">
+                <label for="firstname">First name</label>
+            </div>
+            <div class="col-md-10">
+                <input type="text" ng-model="vm.employee.firstname" class="form-control" name="firstname" placeholder="First name" required ng-minlength="3" ng-maxlength="15" />
+                <p ng-show="createEmployeeForm.firstname.$invalid && !createEmployeeForm.firstname.$pristine" class="help-block">You first name is required.</p>
+                <p ng-show="createEmployeeForm.firstname.$error.minlength" class="help-block">First name is too short.</p>
+                <p ng-show="createEmployeeForm.firstname.$error.maxlength" class="help-block">First name is too long.</p>
+            </div>
+        </div>
+
+
+
+        <div class="form-group row" ng-class="{ 'has-error' : createEmployeeForm.lastname.$invalid && !createEmployeeForm.lastname.$pristine }">
+            <div class="col-md-2">
+
+                <label for="lastname">Last name</label>
+            </div>
+            <div class="col-md-10">
+                <input type="text" class="form-control" ng-model="vm.employee.lastname" name="lastname" placeholder="Last name" required ng-minlength="3" ng-maxlength="15" />
+                <p ng-show="createEmployeeForm.lastname.$invalid && !createEmployeeForm.lastname.$pristine" class="help-block">You last name is required.</p>
+                <p ng-show="createEmployeeForm.lastname.$error.minlength" class="help-block">Last name is too short.</p>
+                <p ng-show="createEmployeeForm.lastname.$error.maxlength" class="help-block">Last name is too long.</p>
+            </div>
+        </div>
+
+        <div class="form-group row" ng-class="{ 'has-error' : createEmployeeForm.email.$invalid && !createEmployeeForm.email.$pristine }">
+            <div class="col-md-2">
+                <label for="email">E-mail</label>
+            </div>
+            <div class="col-md-10">
+                <input type="email" class="form-control" ng-model="vm.employee.email" name="email" placeholder="email@me.com" required />
+                <p ng-show="createEmployeeForm.email.$invalid && !createEmployeeForm.email.$pristine" class="help-block">Your e-mail is required.</p>
+                
+            </div>
+
+        </div>
+        <div class="pull-right row">
+            <div class="col-md-3">
+                <button ng-click="vm.cancel()" class="btn btn-danger">Cancel</button>
+
+            </div>
+            <div class="col-md-3">
+                <button class="btn btn-success" ng-disabled="createEmployeeForm.$invalid" ng-click="vm.createNewEmployee()">Create new employee</button>
+            </div>
+        </div>
+    </div>
+</form>

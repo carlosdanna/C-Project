@@ -1,0 +1,50 @@
+﻿<form class="form-vertical" name="updateEmployeeForm" ng-init="vm.initialize()" novalidate>
+    <h3> Update Employee</h3>
+    <div class="well col-md-offset-1 col-md-10">
+        <div class="form-group row" ng-class="{ 'has-error' : updateEmployeeForm.firstname.$invalid && !updateEmployeeForm.firstname.$pristine }">
+            <div class="col-md-2">
+                <label for="firstname">First name</label>
+            </div>
+            <div class="col-md-10">
+                <input type="text" ng-model="vm.employee.firstname" name="firstname" class="form-control" placeholder="First name" required ng-minlength="3" ng-maxlength="15" />
+                <p ng-show="updateEmployeeForm.firstname.$invalid && !updateEmployeeForm.firstname.$pristine" class="help-block">You first name is required.</p>
+                <p ng-show="updateEmployeeForm.firstname.$error.minlength" class="help-block">First name is too short.</p>
+                <p ng-show="updateEmployeeForm.firstname.$error.maxlength" class="help-block">First name is too long.</p>
+            </div>
+        </div>
+
+
+        <div class="form-group row" ng-class="{ 'has-error' : updateEmployeeForm.lastname.$invalid && !updateEmployeeForm.lastname.$pristine }">
+            <div class="col-md-2">
+
+                <label for="lastname">Last name</label>
+            </div>
+            <div class="col-md-10">
+                <input type="text" class="form-control" ng-model="vm.employee.lastname" name="lastname" placeholder="Last name" required ng-minlength="3" ng-maxlength="15" />
+                <p ng-show="updateEmployeeForm.lastname.$invalid && !updateEmployeeForm.lastname.$pristine" class="help-block">You last name is required.</p>
+                <p ng-show="updateEmployeeForm.lastname.$error.minlength" class="help-block">Last name is too short.</p>
+                <p ng-show="updateEmployeeForm.lastname.$error.maxlength" class="help-block">Last name is too long.</p>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-2">
+                <label for="email">E-mail</label>
+            </div>
+            <div class="col-md-10" ng-class="{ 'has-error' : updateEmployeeForm.email.$invalid && !updateEmployeeForm.email.$pristine }">
+                <input type="email" class="form-control" name="email" ng-model="vm.employee.email" placeholder="email@me.com" required />
+                <p ng-show="updateEmployeeForm.email.$invalid && !updateEmployeeForm.email.$pristine" class="help-block">Your e-mail is required.</p>
+            </div>
+
+        </div>
+        <div class="pull-right row">
+            <div class="col-md-3">
+                <button ng-click="vm.cancel()" class="btn btn-danger">Cancel</button>
+
+            </div>
+            <div class="col-md-3">
+                <button class="btn btn-primary" ng-disabled="updateEmployeeForm.$invalid" ng-click="vm.updateEmployee()">Update employee</button>
+            </div>
+        </div>
+    </div>
+</form>
